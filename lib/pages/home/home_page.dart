@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dating_app/profile/providers/page/home_page_provider.dart';
-import '../../enums/home_navigation_destination.dart';
-import '../../profile/providers/interfaces/widget_provider.dart';
-import '../../profile/providers/navigation_destination/home_destination_provider.dart';
+import 'local_dependencies.dart';
 
 class HomePage extends StatefulWidget {
   @override

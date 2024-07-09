@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'suggestion.dart';
-import '../favorites/favorites.dart';
-import '../../widgets/intro_card.dart';
+import 'local_dependencies.dart';
 
 class PeoplePage extends StatefulWidget {
   @override
@@ -15,7 +13,6 @@ class _PeoplePageState extends State<PeoplePage> {
     final suggestion = Provider.of<Suggestion>(context);
     final Size totalSize = MediaQuery.of(context).size;
     Favorites fav = Provider.of<Favorites>(context);
-    //Favorites fav = context.watch<Favorites>();
 
     return Center(
       child: Column(

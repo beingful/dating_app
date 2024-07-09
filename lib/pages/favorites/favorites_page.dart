@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'favorites.dart';
-import '../../profile/models/user.dart';
-import '../../widgets/chaotic_wrap.dart';
-import '../../widgets/intro_card.dart';
+import 'local_dependencies.dart';
 
 class FavoritesPage extends StatelessWidget {
   @override
@@ -20,7 +17,7 @@ class FavoritesPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: ChaoticWrap<User, Column>(
+            child: ChaoticWrap<User>(
               rootModelItems: favorites.users,
               childProvider: (user) => 
                 Column(

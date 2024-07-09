@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:dating_app/pages/people/suggestion.dart';
-import 'package:dating_app/profile/providers/user/user_providers.dart';
 import 'package:provider/provider.dart';
-import 'pages/favorites/favorites.dart';
 import 'pages/home/home_page.dart';
+import 'shared/notifiers/packs/notifiers.dart';
+import 'shared/providers/user/packs/user_providers.dart';
 
 void main() {
   runApp(const MyApp());
