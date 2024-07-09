@@ -1,0 +1,4 @@
+enum HomePageDestination {
+  people,
+  favorite
+} 
