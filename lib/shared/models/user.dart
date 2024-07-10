@@ -13,7 +13,8 @@ class User with Profile {
   final Location? location;
   final String? email;
 
-  bool isLiked = false;
+  @override
+  final ProfilePicture picture;
 
   @JsonKey(name: 'dob')
   final Birthday? birthday;
@@ -21,7 +22,10 @@ class User with Profile {
   @JsonKey(name: 'cell')
   final String? phoneNumber;
 
-  User(this.name, {this.birthday, picture, this.location, this.email, this.phoneNumber});
+  @JsonKey(includeFromJson: false)
+  bool isLiked = false;
+
+  User(this.name, {this.birthday, this.picture = const ProfilePicture.undefined(), this.location, this.email, this.phoneNumber});
 
   User.undefined() : this(Name('-', '-'));
 

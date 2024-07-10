@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
 
-class IntroCard extends StatelessWidget {
-  final Profile profile;
+class IntroCard<TProfile extends Profile> extends StatelessWidget {
+  final TProfile profile;
 
   const IntroCard(this.profile, {super.key});
 

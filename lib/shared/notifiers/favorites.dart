@@ -11,7 +11,6 @@ class Favorites extends ChangeNotifier {
   void toggle(User user) {
     if (users.contains(user)) {
       removeUser(user);
-      addUser(user);
     } else {
       addUser(user);
     }

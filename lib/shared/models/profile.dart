@@ -1,7 +1,6 @@
 import 'profile_picture.dart';
 
 abstract mixin class Profile {
-  final ProfilePicture picture = ProfilePicture.undefined();
-
+  ProfilePicture get picture;
   String get description;
 }
