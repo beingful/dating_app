@@ -22,6 +22,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => Favorites()
+        ),
+        ChangeNotifierProvider(
+          create: (_) => Geolocation()
         )
       ],
       child: MaterialApp(

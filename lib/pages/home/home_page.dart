@@ -1,20 +1,21 @@
+import 'package:dating_app/shared/notifiers/geolocation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'local_dependencies.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  State<HomePage> createState() => _HomePageState(HomePageProvider());
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final WidgetProvider<Enum, Widget> _homePageProvider;
+  final HomePageProvider _homePageProvider = HomePageProvider();
   HomePageDestination currentDestination = HomePageDestination.values[0];
-
-  _HomePageState(this._homePageProvider);
 
   @override
   Widget build(BuildContext context) {
     final ThemeData mainTheme = Theme.of(context);
+    final Geolocation geolocation = Provider.of<Geolocation>(context);
     final HomeDestinationProvider destinationProvider = HomeDestinationProvider(mainTheme.colorScheme);
 
     return Scaffold(
