@@ -10,9 +10,15 @@ This project's designed to simulate a tiny part of dating app experience. It's f
 
 Google maps are injected in the project via "location_finder" external lib (see: https://github.com/beingful/location_finder_lib).
 
-"Favorite" users are stored into firebase realtime database.
+"Favorite" users are stored into Firebase realtime database.
 
 All users' information is getting from the third-party resource: https://randomuser.me/api.
+
+The web app's deployed with Firebase hosting service.
+
+<h3>
+  Dating app link: https://dating-app-c0dd4.web.app
+</h3>
 
 ___________________________________________________________________________________________
 
