@@ -1,5 +1,5 @@
 name: dating_app
-description: "A new Flutter project."
+description: "Dating app primitive simulator."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -11,6 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  location_finder:
+    path: lib/location_finder
+
   http: ^1.2.1
   json_annotation: ^4.9.0
   json_serializable: ^6.8.0
@@ -21,9 +24,6 @@ dependencies:
   firebase_core: ^3.2.0
   firebase_database: ^11.0.3
   uuid: ^4.4.2
-  google_maps_flutter: ^2.7.0
-  flutter_map_math: ^0.1.7
-  latlong2: ^0.9.1
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +37,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - lib/google_maps/assets/style/map/classic_dark.json
-    - lib/google_maps/assets/style/map/black_pink.json
-    - lib/google_maps/assets/style/map/silver_pink.json
+    - lib/location_finder/assets/style/map/classic_dark.json
+    - lib/location_finder/assets/style/map/black_pink.json
+    - lib/location_finder/assets/style/map/silver_pink.json
