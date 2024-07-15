@@ -3,22 +3,22 @@
 ## Description
 
 This project's designed to simulate a tiny part of dating app experience. It's featured with:
-1. Geolocation.
-2. Google maps.
-3. Firebase realtime database connection.
-4. Widget test: https://github.com/beingful/dating_app/blob/main/test/widget_test.dart.
 
-Google maps are injected in the project via "location_finder" external lib (see: https://github.com/beingful/location_finder_lib).
+1. [Geolocation](https://pub.dev/packages/geolocator).
+2. [Google maps](https://pub.dev/packages/google_maps_flutter).
+3. [Firebase realtime database](https://firebase.google.com/docs/database).
+4. [Widget test](https://github.com/beingful/dating_app/blob/main/test/widget_test.dart).
+
+Google maps are injected in the project via ["location_finder" library](https://github.com/beingful/location_finder_lib).
 
 "Favorite" users are stored into Firebase realtime database.
 
-All users' information is getting from the third-party resource: https://randomuser.me/api.
+All users' information is getting from the third-party resource ["randomuser.me/api"](https://randomuser.me/api).
 
-The web app's deployed with Firebase hosting service.
+The web app's deployed with [Firebase hosting](https://firebase.google.com/docs/hosting).
 
-<h3>
-  Dating app link: https://dating-app-c0dd4.web.app
-</h3>
+>[!IMPORTANT]
+>## [Follow dating app link](https://dating-app-c0dd4.web.app)
 
 ___________________________________________________________________________________________
 
@@ -33,7 +33,7 @@ ________________________________________________________________________________
   <li>
     <h3>Geolocation permission granted</h3>
     <p>
-      <img src="https://github.com/beingful/dating_app/blob/main/attachments/permission-given.PNG" width="100%" />
+      <img src="https://github.com/beingful/dating_app/blob/main/attachments/permissions-given.PNG" width="100%" />
     </p>
   </li>
   <li>
@@ -52,19 +52,19 @@ ________________________________________________________________________________
     <h3>Google map styling. Tap on the map to change its style</h3>
     <ul>
       <li>
-        <h4>Classic dark style (see: https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/classic_dark.json)</h4>
+        <h4>[Classic dark](see: https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/classic_dark.json) style</h4>
         <p>
           <img src="https://github.com/beingful/dating_app/blob/main/attachments/dark-styled-map.PNG" width="100%" />
         </p>
       </li>
       <li>
-        <h4>Black-pink style (see: https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/black_pink.json)</h4>
+        <h4>[Black-pink](https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/black_pink.json) style</h4>
         <p>
           <img src="https://github.com/beingful/dating_app/blob/main/attachments/black-pink-styled-map.PNG" width="100%" />
         </p>
       </li>
       <li>
-        <h4>Silver-pink style (see: https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/silver_pink.json)</h4>
+        <h4>[Silver-pink](https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/silver_pink.json) style</h4>
         <p>
           <img src="https://github.com/beingful/dating_app/blob/main/attachments/pink-ocean-styled-map.PNG" width="100%" />
         </p>
