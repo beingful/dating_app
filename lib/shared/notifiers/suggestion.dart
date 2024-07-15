@@ -12,9 +12,16 @@ class Suggestion extends ChangeNotifier {
 
   User get current => _currentUser;
 
+  void toggleLike() {
+    _currentUser.isLiked = !_currentUser.isLiked;
+
+    notifyListeners();
+  }
+
   void createNext() async {
     _currentUser = await _userProvider.provideAsync().then((user) {
       notifyListeners();
+
       return user;
     });
   }

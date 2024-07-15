@@ -11,7 +11,7 @@ class ProfilePicture {
 
   const ProfilePicture.undefined() : url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png';
 
-  factory ProfilePicture.fromJson(Map<String, dynamic> json) => _$ProfilePictureFromJson(json);
+  factory ProfilePicture.fromJson(Map<dynamic, dynamic> json) => _$ProfilePictureFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProfilePictureToJson(this);
 }

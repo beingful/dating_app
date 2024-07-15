@@ -1,14 +1,14 @@
+import 'package:dating_app/shared/models/user.dart';
 import 'package:flutter/material.dart';
 import '../enums/home_navigation_destination.dart';
 import '../../../packs/pages.dart';
-import '../../../../shared/providers/widget/interfaces/widget_provider.dart';
+import '../../../../database/repositories/repository.dart';
 
-class HomePageProvider implements WidgetProvider<HomePageDestination, Widget> {
-  @override
-  Widget provide(HomePageDestination key) {
+class HomePageProvider {
+  Widget Function(Repository<User>) provide(HomePageDestination key) {
     return switch(key) {
-      HomePageDestination.people => PeoplePage(),
-      HomePageDestination.favorite => FavoritesPage()
+      HomePageDestination.people => (repository) => PeoplePage(repository),
+      HomePageDestination.favorite => (_) => FavoritesPage()
     };
   }
 }

@@ -9,7 +9,7 @@ class Name {
 
   Name(this.first, this.last);
 
-  factory Name.fromJson(Map<String, dynamic> json) => _$NameFromJson(json);
+  factory Name.fromJson(Map<dynamic, dynamic> json) => _$NameFromJson(json);
 
   Map<String, dynamic> toJson() => _$NameToJson(this);
 

@@ -11,12 +11,14 @@ class Birthday {
 
   Birthday.ageOnly({required int age}) : this(null, age);
 
-  factory Birthday.fromJson(Map<String, dynamic> json) => _$BirthdayFromJson(json);
+  factory Birthday.fromJson(Map<dynamic, dynamic> json) => _$BirthdayFromJson(json);
 
   Map<String, dynamic> toJson() => _$BirthdayToJson(this);
 
   @override
   String toString() {
-   return date == null ? 'Age: $age' : 'Date of birth: $date, $age';
+   return date == null
+    ? 'Age: $age'
+    : 'Date of birth: ${date!.day}.${date!.month}.${date!.year}, $age';
   }
 }

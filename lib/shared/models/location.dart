@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'point.dart';
 
 part 'generated/location.g.dart';
 
@@ -7,9 +8,12 @@ class Location {
   final String city;
   final String country;
 
-  Location(this.city, this.country);
+  @JsonKey(name: 'coordinates')
+  final Point point;
 
-  factory Location.fromJson(Map<String, dynamic> json) => _$LocationFromJson(json);
+  Location(this.city, this.country, this.point);
+
+  factory Location.fromJson(Map<dynamic, dynamic> json) => _$LocationFromJson(json);
 
   Map<String, dynamic> toJson() => _$LocationToJson(this);
 

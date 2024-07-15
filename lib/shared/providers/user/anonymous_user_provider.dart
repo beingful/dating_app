@@ -5,7 +5,7 @@ import 'package:english_words/english_words.dart';
 import 'interfaces/user_provider.dart';
 import '../../models/packs/user_info.dart';
 
-class EmptyUserProvider implements UserProvider {
+class AnonymousUserProvider implements UserProvider {
   @override
   Future<User> provideAsync() {
     RandomNames sourceOfName = RandomNames();
@@ -15,7 +15,7 @@ class EmptyUserProvider implements UserProvider {
     String email = '${WordPair.random().asSnakeCase}@gmail.com';
     Completer<User> completer = Completer<User>();
 
-    User user = User(name, birthday: birthday, email: email);
+    User user = User.anonymous(name, birthday, email);
 
     completer.complete(user);
 

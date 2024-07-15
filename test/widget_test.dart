@@ -1,30 +1,47 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:dating_app/database/repositories/repository.dart';
+import 'package:dating_app/pages/people/people_page.dart';
+import 'package:dating_app/shared/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:network_image_mock/network_image_mock.dart';
+import 'mocks/dating_app.mocks.dart';
+import 'mocks/widget_test.mocks.dart';
 
-import 'package:dating_app/main.dart';
-
+@GenerateMocks([Repository<User>])
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  final MockRepository<User> repository = MockRepository<User>();
+  final MockDatingApp app = MockDatingApp(repository);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  setUpAll(() async {
+    when(repository.set(any, any))
+      .thenAnswer((_) async {});
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  testWidgets('Like button icon change on tap test',
+  (WidgetTester tester) async {
+    await mockNetworkImagesFor(() async {
+      await tester.pumpWidget(app);
+    });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    final Finder buttonWithFavoriteBorderIcon = find.descendant(
+      of: find.byType(PeoplePage),
+      matching: find.byIcon(Icons.favorite_border),
+    );
+
+    await tester.pumpAndSettle();
+
+    await tester.tap(buttonWithFavoriteBorderIcon);
+
+    final Finder buttonWithFavoriteIcon = find.descendant(
+      of: find.byType(PeoplePage),
+      matching: find.byIcon(Icons.favorite),
+    );
+
+    await tester.pumpAndSettle();
+    
+    expect(buttonWithFavoriteIcon, findsOne);
+    expect(buttonWithFavoriteBorderIcon, findsNothing);
   });
 }

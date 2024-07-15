@@ -1,21 +1,24 @@
-import 'package:dating_app/shared/notifiers/geolocation.dart';
+import 'package:dating_app/database/repositories/repository.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import '../../shared/models/user.dart';
 import 'local_dependencies.dart';
 
 class HomePage extends StatefulWidget {
+  final Repository<User> repository;
+  
+  HomePage(this.repository);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   final HomePageProvider _homePageProvider = HomePageProvider();
-  HomePageDestination currentDestination = HomePageDestination.values[0];
+  HomePageDestination _currentDestination = HomePageDestination.values[0];
 
   @override
   Widget build(BuildContext context) {
     final ThemeData mainTheme = Theme.of(context);
-    final Geolocation geolocation = Provider.of<Geolocation>(context);
     final HomeDestinationProvider destinationProvider = HomeDestinationProvider(mainTheme.colorScheme);
 
     return Scaffold(
@@ -26,10 +29,10 @@ class _HomePageState extends State<HomePage> {
               destinations: HomePageDestination.values.expand((destinationId) => {
                 destinationProvider.provide(destinationId)
               }).toList(),
-              selectedIndex: currentDestination.index,
+              selectedIndex: _currentDestination.index,
               onDestinationSelected: (newIndex) => {
                 setState(() {
-                  currentDestination = HomePageDestination.values[newIndex];
+                  _currentDestination = HomePageDestination.values[newIndex];
                 })
               },
             ),
@@ -37,7 +40,9 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: Container(
               color: mainTheme.colorScheme.primaryContainer,
-              child: _homePageProvider.provide(currentDestination),
+              child: _homePageProvider
+                .provide(_currentDestination)
+                .call(widget.repository),
             ),
           ),
         ],

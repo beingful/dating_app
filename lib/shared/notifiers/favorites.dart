@@ -1,31 +1,52 @@
+import 'dart:async';
+import 'package:dating_app/database/converters/user_converter.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import '../models/user.dart';
+import '../../database/repositories/repository.dart';
 
 class Favorites extends ChangeNotifier {
-  final List<User> users = [];
+  final Repository<User> _repository;
+  late StreamSubscription<DatabaseEvent> subscription;
+  List<User> users = [];
 
-  bool get isNotEmpty {
-    return users.isNotEmpty;
+  Favorites(this._repository) {
+    _init();
   }
 
-  void toggle(User user) {
-    if (users.contains(user)) {
-      removeUser(user);
-    } else {
-      addUser(user);
-    }
+  bool get isNotEmpty => users.isNotEmpty;
+
+  void removeUser(User user) async {
+    await _repository.remove(user.id);
+  }
+
+  void addUser(User user) async {
+    await _repository.set(user, UserConverter());
+  }
+
+  @override
+  void dispose() {
+    subscription.cancel();
+
+    super.dispose();
+  }
+
+  void _init() async {
+    subscription = _repository.listen(_refreshFavorites);
+
+    users = await _repository.getAll(UserConverter());
 
     notifyListeners();
   }
 
-  void removeUser(User user) {
-    users.remove(user);
+  void _refreshFavorites(Map<dynamic, dynamic> data) {
+    users.clear();
 
-    notifyListeners();
-  }
+    UserConverter converter = UserConverter();
 
-  void addUser(User user) {
-    users.add(user);
+    data.forEach((key, value) {
+      users.add(converter.fromJson(value));
+    });
 
     notifyListeners();
   }

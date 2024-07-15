@@ -6,7 +6,7 @@ part of '../profile_picture.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProfilePicture _$ProfilePictureFromJson(Map<String, dynamic> json) =>
+ProfilePicture _$ProfilePictureFromJson(Map<dynamic, dynamic> json) =>
     ProfilePicture(
       json['large'] as String,
     );

@@ -5,8 +5,8 @@ class LocationPermissionService {
     bool locationServiceEnabled = await Geolocator.isLocationServiceEnabled();
 
     return locationServiceEnabled
-    ? _tryGetPermission()
-    : false;
+      ? _tryGetPermission()
+      : false;
   }
 
   Future<bool> hasPermission() async {
@@ -15,16 +15,9 @@ class LocationPermissionService {
     return _hasPermission(permission);
   }
 
-  bool _hasPermission(LocationPermission permission) {
-    return switch (permission) {
-      LocationPermission.always || LocationPermission.whileInUse => true,
-      _ => false
-    };
-  }
-
   Future<bool> _tryGetPermission() async {
     bool isLocationAllowed;
-
+    
     bool isLocationAvailable = await hasPermission();
 
     if (isLocationAvailable)
@@ -37,5 +30,12 @@ class LocationPermissionService {
     }
 
     return isLocationAllowed;
+  }
+
+  bool _hasPermission(LocationPermission permission) {
+    return switch (permission) {
+      LocationPermission.always || LocationPermission.whileInUse => true,
+      _ => false
+    };
   }
 }

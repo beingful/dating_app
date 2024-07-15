@@ -6,7 +6,7 @@ part of '../birthday.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Birthday _$BirthdayFromJson(Map<String, dynamic> json) => Birthday(
+Birthday _$BirthdayFromJson(Map<dynamic, dynamic> json) => Birthday(
       json['date'] == null ? null : DateTime.parse(json['date'] as String),
       (json['age'] as num).toInt(),
     );

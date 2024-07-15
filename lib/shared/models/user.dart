@@ -1,14 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:uuid/uuid.dart';
+import 'packs/user_info.dart';
 import 'profile.dart';
-import 'name.dart';
-import 'birthday.dart';
-import 'location.dart';
-import 'profile_picture.dart';
+import '../../database/models/document.dart';
 
 part 'generated/user.g.dart';
 
 @JsonSerializable()
-class User with Profile {
+class User extends Document with Profile {
   final Name name;
   final Location? location;
   final String? email;
@@ -25,13 +24,20 @@ class User with Profile {
   @JsonKey(includeFromJson: false)
   bool isLiked = false;
 
-  User(this.name, {this.birthday, this.picture = const ProfilePicture.undefined(), this.location, this.email, this.phoneNumber});
+  User(super.id, this.name, {this.birthday, this.picture = const ProfilePicture.undefined(), this.location, this.email, this.phoneNumber});
 
-  User.undefined() : this(Name('-', '-'));
+  User.undefined() : this(Uuid().v4(), Name('-', '-'));
+  User.anonymous(Name name, Birthday birthday, String email)
+    : this(Uuid().v4(), name, birthday: birthday, picture: ProfilePicture.undefined(), email: email);
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory User.fromJson(Map<dynamic, dynamic> json) => _$UserFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
+
+  @override
+  bool operator ==(Object other) {
+    return id == (other as User).id;
+  }
 
   @override
   String get description =>
