@@ -1,4 +1,4 @@
-import 'package:dating_app/google_maps/notifiers/geo_map_style.dart';
+import 'package:location_finder/location_finder.dart';
 import 'package:dating_app/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../google_maps/models/position.dart';
-import '../../google_maps/widgets/geo_map.dart';
+import 'package:location_finder/location_finder.dart';
 import '../notifiers/geolocation.dart';
 import '../notifiers/suggestion.dart';
 
