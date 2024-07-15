@@ -19,6 +19,6 @@ class Location {
 
   @override
   String toString() {
-   return '$Location: $city, $country';
+   return 'Location: $city, $country';
   }
 }

@@ -15,7 +15,7 @@ class Name {
 
   @override
   String toString() {
-   return '$Name: $first $last';
+   return 'Name: $first $last';
   }
 }
 

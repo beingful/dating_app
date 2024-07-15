@@ -29,12 +29,11 @@ class _PeoplePageState extends State<PeoplePage> {
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxWidth: totalSize.width * 0.4,
-                  maxHeight: totalSize.height * 0.5
+                  maxWidth: totalSize.width * 0.4
                 ),
                 child: IntroCard(suggestion.current)
               ),
