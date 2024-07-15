@@ -25,7 +25,8 @@ ________________________________________________________________________________
 
 <ul>
   <li>
-    <h3>Geolocation permission request</h3>
+    <h3>
+      Geolocation permission request</h3>
     <p>
       <img src="https://github.com/beingful/dating_app/blob/main/attachments/location-permission-request.PNG" width="100%" />
     </p>
@@ -52,19 +53,31 @@ ________________________________________________________________________________
     <h3>Google map styling. Tap on the map to change its style</h3>
     <ul>
       <li>
-        <h4>[Classic dark](see: https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/classic_dark.json) style</h4>
+        <h4>
+          <a href="https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/classic_dark.json">
+            Classic dark style
+          </a>
+        </h4>
         <p>
           <img src="https://github.com/beingful/dating_app/blob/main/attachments/dark-styled-map.PNG" width="100%" />
         </p>
       </li>
       <li>
-        <h4>[Black-pink](https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/black_pink.json) style</h4>
+        <h4>
+          <a href="https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/black_pink.json">
+            Black-pink style
+          </a>
+        </h4>
         <p>
           <img src="https://github.com/beingful/dating_app/blob/main/attachments/black-pink-styled-map.PNG" width="100%" />
         </p>
       </li>
       <li>
-        <h4>[Silver-pink](https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/silver_pink.json) style</h4>
+        <h4>
+          <a href="https://github.com/beingful/location_finder_lib/blob/main/assets/style/map/silver_pink.json">
+            Silver-pink style
+          </a>
+        </h4>
         <p>
           <img src="https://github.com/beingful/dating_app/blob/main/attachments/pink-ocean-styled-map.PNG" width="100%" />
         </p>
