@@ -18,7 +18,7 @@ All users' information is getting from the third-party resource ["randomuser.me/
 The web app's deployed with [Firebase hosting](https://firebase.google.com/docs/hosting).
 
 >[!IMPORTANT]
->## [Follow dating app link](https://dating-app-c0dd4.web.app)
+>## [Follow dating app link](https://dating-app-1876a.web.app)
 
 ___________________________________________________________________________________________
 
